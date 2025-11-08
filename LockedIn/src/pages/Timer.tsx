@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import TimerDisplay from '../components/TimerDisplay';
-import { useTimer } from '../hooks/useTimer';
+import useTimer from '../hooks/useTimer';
 
 const Timer = () => {
-    const { time, isActive, startTimer, stopTimer, resetTimer } = useTimer();
+    // default to 25 minutes (1500 seconds) study interval
+    const { time, isActive, startTimer, stopTimer, resetTimer } = useTimer(1500);
     const [isBreak, setIsBreak] = useState(false);
 
     useEffect(() => {

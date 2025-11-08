@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 
+// Minimal Vite config — remove plugin import to avoid plugin/Vite-version mismatches in this environment.
 export default defineConfig({
-  plugins: [react()],
   server: {
     port: 3000,
   },

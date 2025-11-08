@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Timer from './pages/Timer';
 import StudyLog from './pages/StudyLog';
@@ -9,16 +9,16 @@ import Header from './components/Header';
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/timer" component={Timer} />
-        <Route path="/study-log" component={StudyLog} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/timer" element={<Timer />} />
+        <Route path="/study-log" element={<StudyLog />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@dataconnect/generated": "file:src/dataconnect-generated",
+    "firebase": "^12.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
