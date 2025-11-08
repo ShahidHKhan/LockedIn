@@ -1,0 +1,31 @@
+{
+  "name": "pomodoro-studying-app",
+  "version": "1.0.0",
+  "description": "A Pomodoro Studying application with user registration and study logging features.",
+  "main": "src/main.tsx",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "firebase": "^9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "vite": "^2.0.0",
+    "vite-plugin-react": "^1.0.0"
+  },
+  "keywords": [
+    "pomodoro",
+    "study",
+    "timer",
+    "firebase",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
