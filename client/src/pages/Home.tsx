@@ -63,7 +63,7 @@ const Home: React.FC = () => {
 
       <div style={styles.card}>
         <h3>Welcome{user ? `, ${user.displayName || ''}` : ''} 👋</h3>
-        <div style={styles.btnPos}><button style={styles.btn2}>Study</button></div>
+        <div style={styles.btnPos}><button onClick={subjectSelection} style={styles.btn2}>Study</button></div>
         <div><button onClick={studylog} style={styles.btn3}>Log</button></div>
       </div>
     </div>
