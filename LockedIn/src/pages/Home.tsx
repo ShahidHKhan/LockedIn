@@ -1,3 +1,4 @@
+// Placeholder for Home page — to be implemented later
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,3 +1,4 @@
+// Placeholder for Timer page — to be implemented later
 import React, { useState, useEffect } from 'react';
 import TimerDisplay from '../components/TimerDisplay';
 import useTimer from '../hooks/useTimer';
