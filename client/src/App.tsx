@@ -18,14 +18,14 @@ const App: React.FC = () => {
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-  <Route path="/home" element={<Home />} />
-  <Route path="/subject" element={<SubjectSelection />} />
-  <Route path="/timer" element={<TimerSelection />} />
-  <Route path="/main" element={<MainTimer />} />
-  <Route path="/break" element={<BreakDisplay />} />
-  <Route path="/end" element={<EndScreen />} />
-  <Route path="/notes" element={<NotesAIDisplay />} />
-  <Route path="/log" element={<StudyLog />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/subjectSelection" element={<SubjectSelection />} />
+      <Route path="/timerSelection" element={<TimerSelection />} />
+      <Route path="/mainTimer" element={<MainTimer />} />
+      <Route path="/breakDisplay" element={<BreakDisplay />} />
+      <Route path="/endScreen" element={<EndScreen />} />
+      <Route path="/notesAIDisplay" element={<NotesAIDisplay />} />
+      <Route path="/studyLog" element={<StudyLog />} />
       {/* fallback to home */}
       <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
