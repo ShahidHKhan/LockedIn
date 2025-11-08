@@ -1,1 +1,5 @@
-// Placeholder for Subject page — to be implemented later
+import React from 'react';
+
+const Subject: React.FC = () => null;
+
+export default Subject;

@@ -1,1 +1,5 @@
-// Placeholder for Primary page — to be implemented later
+import React from 'react';
+
+const Primary: React.FC = () => null;
+
+export default Primary;

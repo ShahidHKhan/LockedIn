@@ -1,1 +1,5 @@
-// Placeholder for StudyLog page — to be implemented later
+import React from 'react';
+
+const StudyLog: React.FC = () => null;
+
+export default StudyLog;

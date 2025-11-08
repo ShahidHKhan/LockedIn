@@ -1,1 +1,5 @@
-// Placeholder for Listen page — to be implemented later
+import React from 'react';
+
+const Listen: React.FC = () => null;
+
+export default Listen;

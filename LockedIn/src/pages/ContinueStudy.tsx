@@ -1,1 +1,5 @@
-// Placeholder for ContinueStudy page — to be implemented later
+import React from 'react';
+
+const ContinueStudy: React.FC = () => null;
+
+export default ContinueStudy;
