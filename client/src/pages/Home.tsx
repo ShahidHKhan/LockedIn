@@ -4,9 +4,9 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import type { User } from 'firebase/auth'
 import { useNavigate, Link } from 'react-router-dom'
 import LockedInLogo from "../assets/LockedInLogo.png"
-import StudyLog from './StudyLog'
 
 const styles: Record<string, React.CSSProperties> = {
+  h1: {paddingTop:'50px'},
   container: { maxWidth: 880, margin: '48px auto', padding: 24, borderRadius: 8, fontFamily: 'Inter, system-ui, sans-serif' },
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
   card: { paddingTop:'100px', paddingBottom:'130px',padding: 18, borderRadius: 8, boxShadow: '0 4px 18px rgba(0,0,0,0.04)' },
@@ -14,6 +14,7 @@ const styles: Record<string, React.CSSProperties> = {
   btn2:{ fontSize: '30px',padding: '8px 100px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btn3:{ fontSize: '30px',padding: '8px 114px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btnPos:{ paddingTop:'250px',paddingBottom:'30px'},
+  btnPos2: {paddingBottom:'100px'}
 }
 
 const Home: React.FC = () => {
@@ -62,9 +63,9 @@ const Home: React.FC = () => {
       </div>
 
       <div style={styles.card}>
-        <h3>Welcome{user ? `, ${user.displayName || ''}` : ''} 👋</h3>
+        <h1 style={styles.h1}>Welcome{user ? `, ${user.displayName || ''}` : ''} 👋</h1>
         <div style={styles.btnPos}><button onClick={subjectSelection} style={styles.btn2}>Study</button></div>
-        <div><button onClick={studylog} style={styles.btn3}>Log</button></div>
+        <div style={styles.btnPos2}><button onClick={studylog} style={styles.btn3}>Log</button></div>
       </div>
     </div>
   )
