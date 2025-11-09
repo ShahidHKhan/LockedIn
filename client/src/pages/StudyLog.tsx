@@ -14,10 +14,10 @@ const styles: Record<string, React.CSSProperties> = {
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
   card: { paddingTop:'100px', paddingBottom:'130px',padding: 18, borderRadius: 8, boxShadow: '0 4px 18px rgba(0,0,0,0.04)' },
   btn: { padding: '8px 12px', borderRadius: 6, border: 'none', background: '#ef4444', color: '#fff', cursor: 'pointer' },
-  btn2:{ fontSize: '30px',padding: '8px 100px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
+  btn2: { fontSize: '30px',padding: '8px 100px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btn3:{ fontSize: '30px',padding: '8px 65px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btn4:{ marginRight: '10px', padding: '8px 12px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
-  btnPos:{ paddingTop:'100px',paddingBottom:'30px'},
+  btnPos:{ paddingTop:'10px',paddingBottom:'30px'},
   btnPos2: {paddingBottom:'100px'},
   studyBubble: {
     background: 'linear-gradient(135deg, #ff7231ff 0%, #ffb366 100%)',
@@ -239,12 +239,9 @@ const StudyLog: React.FC = () => {
       </div>
 
       <div style={styles.card}>
-        <img src={StudyLogIMG} alt="StudyLogLogo" style={{ width: "200px" }} />  
-        <img src={PadLock} alt="PadLock" style={{ width: "300px", borderRadius: '200px'}} />
-        <div style={styles.btnPos}><button onClick={newStudy} style={styles.btn2}>New Study</button></div>
+        <img src={StudyLogIMG} alt="StudyLogLogo" style={{ width: "450px" }} />  
         
         <div style={styles.studyListContainer}>
-          <h3 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Previous Studies</h3>
           
           {loading ? (
             <div style={styles.loadingState}>
