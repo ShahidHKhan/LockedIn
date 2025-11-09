@@ -1,14 +1,13 @@
-# LockedIn — Focused Study Companion
-
-![LockedIn](/assets/LockedIn.png)
+<img width="1472" height="704" alt="LockedInLogo" src="https://github.com/user-attachments/assets/4aadff74-5737-4a6d-9b12-a9c2922b2f51" />
 
 Demo: https://locked-2vbnpd0an-shahidhkhans-projects.vercel.app/home https://lockedin-1m1h.onrender.com
 
-Members: Shahid Khan, Cedric Petilos, Christian Copeland 
+(Members: Shahid Khan, Cedric Petilos, Christian Copeland) New Paltz 2025 Fall Hackathon
 
+# Project LockedIn
 LockedIn is a lightweight study companion built for focused study sessions. It helps users plan study blocks, log sessions, and get AI-powered feedback on short notes. Built during a hackathon, LockedIn combines a polished React front-end with a small agent-powered backend to provide instant feedback and study suggestions.
 
-#Why we chose this project?
+# Why we chose this project?
 One of the growing challenges students face as technology advances is a decreasing attention span, especially when it comes to traditional studying methods. To tackle this issue in a fun and effective way, we developed an application based on the Pomodoro Technique. Students can select subjects of their choice, set a desired study duration, and let the application handle the rest. Our goal is to help students “lock in” for their exams in a humorous yet functional way. Additionally, since one of the best ways to retain information is through teaching, students can use their break periods to explain, or ask, what they’ve learned so far to the built-in AI Agent for feedback and clarification in their understanding.
 
 
@@ -17,10 +16,11 @@ One of the growing challenges students face as technology advances is a decreasi
 - Session timer, subject selection, and AI "Teach Me" tool
 - User authentication/login flow
 
+<img width="853" height="625" alt="ProjectDiagram" src="https://github.com/user-attachments/assets/aec28022-abd1-4cdc-86c8-65ada24a897c" />
 
-![Project Diagram](/assets/ProjectDiagram.png)
+<img width="668" height="578" alt="DataFlow" src="https://github.com/user-attachments/assets/75d0a550-6e39-4d82-a1f3-266b88d21425" />
 
-![Data Flow](/assets/DataFlow.png)
+
 
 
 # Demo
