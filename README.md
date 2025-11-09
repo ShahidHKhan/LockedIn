@@ -12,7 +12,7 @@ LockedIn is a lightweight study companion built for focused study sessions. It h
 One of the growing challenges students face as technology advances is a decreasing attention span, especially when it comes to traditional studying methods. To tackle this issue in a fun and effective way, we developed an application based on the Pomodoro Technique. Students can select subjects of their choice, set a desired study duration, and let the application handle the rest. Our goal is to help students “lock in” for their exams in a humorous yet functional way. Additionally, since one of the best ways to retain information is through teaching, students can use their break periods to explain, or ask, what they’ve learned so far to the built-in AI Agent for feedback and clarification in their understanding.
 
 
-#Key Functionalities
+# Key Functionalities
 - Study Session logged for future references
 - Session timer, subject selection, and AI "Teach Me" tool
 - User authentication/login flow
@@ -23,7 +23,7 @@ One of the growing challenges students face as technology advances is a decreasi
 ![Data Flow](/assets/DataFlow.png)
 
 
-Demo
+# Demo
 You can run the app locally to see the full experience: login → transition scene → main timer → teach-me (AI feedback).
 
 Getting started (dev)
@@ -85,4 +85,4 @@ Architecture
 - Primary datastore - firebase/firebase cloudstore 
 
 
-#Good luck and get LockedIn!
+# Good luck and get LockedIn!
