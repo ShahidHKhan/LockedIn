@@ -14,15 +14,18 @@ const styles: Record<string, React.CSSProperties> = {
   btn: { padding: '8px 12px', borderRadius: 6, border: 'none', background: '#ef4444', color: '#fff', cursor: 'pointer' },
   btn2:{ fontSize: '30px',padding: '8px 100px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btn3:{ fontSize: '30px',padding: '8px 65px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
+  btn4:{ marginRight: '10px', padding: '8px 12px', borderRadius: 6, border: 'none', background: '#ff7231ff', color: '#fff', cursor: 'pointer'},
   btnPos:{ paddingTop:'100px',paddingBottom:'30px'},
   btnPos2: {paddingBottom:'100px'},
-  history: {backgroundColor: '#7a7a7aff', fontSize: '20px', paddingTop:'50px', padding: '20px 10px'}
+  history: {border: '1px solid orange', fontSize: '18px', paddingTop:'50px', padding: '20px 10px'}
 }
 
 const StudyLog: React.FC = () => {
   const [user, setUser] = useState<User | null>(null)
   const navigate = useNavigate()
 
+  const [items, setItems] = useState<string[]>(["Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange","Apple", "Banana", "Orange"])
+  
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u)
@@ -38,11 +41,10 @@ const StudyLog: React.FC = () => {
     navigate('/login')
   }
 
-  function studyHistory(): void {
-    //add DB info to array
-    
-    
+  function back(): void {
+    navigate('/home');
   }
+  
   function newStudy(): void {
     navigate('/subjectSelection');
   }
@@ -54,6 +56,7 @@ const StudyLog: React.FC = () => {
         <div>
           {user ? (
             <>
+              <button style={styles.btn4} onClick={back}>Back</button>
               <button style={styles.btn} onClick={handleSignOut}>Sign out</button>
             </>
           ) : (
@@ -67,9 +70,21 @@ const StudyLog: React.FC = () => {
 
       <div style={styles.card}>
         <h1 style={styles.h1}>Study Log</h1>
-        <img src={PadLock} alt="PadLock" style={{ width: "300px" }} />
+        <img src={PadLock} alt="PadLock" style={{ width: "300px", borderRadius: '200px'}} />
         <div style={styles.btnPos}><button onClick={newStudy} style={styles.btn2}>New Study</button></div>
-         
+         {/* begin */}
+          <div style={{ maxWidth: 400, margin: "0 auto" }}>
+      <h3>Previous Studies</h3>
+      <div style={{ whiteSpace: "pre-line", ...styles.history }}>
+        {items.join("\n")} 
+      </div>
+
+      {/* Optional: Button to add an item */}
+
+    </div>
+         {/* end */}
+
+        
       </div>
     </div>
   )
