@@ -101,7 +101,6 @@ const Home: React.FC = () => {
         <div style={styles.headerInner}>
           <img src={LockedInLogo} alt="LockedIn" style={{ width: 140 }} />
           <div style={styles.navLinks}>
-            <button onClick={() => navigate('/notesAIDisplay')} style={styles.navLinkBtn}>Notes</button>
           </div>
           <div>
             {user ? (
