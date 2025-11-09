@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
+import TransitionScene from './pages/TransitionScene'
 import SubjectSelection from './pages/SubjectSelection'
 import TimerSelection from './pages/TimerSelection'
 import MainTimer from './pages/MainTimer'
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+  <Route path="/transition" element={<TransitionScene />} />
       <Route path="/subjectSelection" element={<SubjectSelection />} />
       <Route path="/timerSelection" element={<TimerSelection />} />
       <Route path="/mainTimer" element={<MainTimer />} />

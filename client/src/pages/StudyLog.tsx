@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { auth, db } from '../firebase/config'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
-import { collection, query, where, orderBy, getDocs } from 'firebase/firestore'
+import { collection, query, where, getDocs } from 'firebase/firestore'
 import type { User } from 'firebase/auth'
 import { useNavigate, Link } from 'react-router-dom'
 import LockedInLogo from "../assets/LockedInLogo.png"

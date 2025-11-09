@@ -35,7 +35,28 @@ const Login: React.FC = () => {
     setLoading(true)
     try {
       await signInWithEmailAndPassword(auth, email, password)
-      navigate('/home')
+      // Try to create/resume an AudioContext on the user's click so the
+      // TransitionScene can play audio without being blocked by autoplay
+      try {
+        const AudioCtx = (window as any).AudioContext || (window as any).webkitAudioContext
+        if (AudioCtx) {
+          const ctx = new AudioCtx()
+          if (ctx.state === 'suspended') {
+            // This resume call happens inside the click handler (user gesture)
+            // and should succeed in most browsers.
+            // eslint-disable-next-line no-await-in-loop
+            await ctx.resume()
+          }
+          // Keep a reference on window so the scene can reuse/resume if needed
+          ;(window as any).__LockedInAudioCtx = ctx
+        }
+      } catch (audioErr) {
+        // ignore audio setup errors; it's non-critical
+        // eslint-disable-next-line no-console
+        console.warn('Audio unlock failed', audioErr)
+      }
+
+      navigate('/transition')
     } catch (err: any) {
       setError(err?.message || 'Failed to log in. Please check your credentials.')
     } finally {
