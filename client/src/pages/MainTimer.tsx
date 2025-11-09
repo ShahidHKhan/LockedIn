@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { endStudySession } from '../firebase/studyService'
 import logo from '../assets/LockedInLogo.png'
-import { playBell } from '../utils/sound'
+import christ1 from '../assets/Christian.png'
+import christ2 from '../assets/Christian2.png'
 
 function formatTime(totalSeconds: number) {
   const m = Math.floor(totalSeconds / 60)
@@ -15,6 +16,8 @@ const MainTimer: React.FC = () => {
   const [session, setSession] = useState<any>(null)
   const [elapsed, setElapsed] = useState<number>(0)
   const intervalRef = useRef<number | null>(null)
+  const imgRef = useRef<number | null>(null)
+  const [showFirst, setShowFirst] = useState(true)
 
   useEffect(() => {
     const raw = localStorage.getItem('lockedin:session')
@@ -33,8 +36,14 @@ const MainTimer: React.FC = () => {
       setElapsed((e) => e + 1)
     }, 1000) as unknown as number
 
+    // image swap every 1 second
+    imgRef.current = window.setInterval(() => {
+      setShowFirst((s) => !s)
+    }, 1000) as unknown as number
+
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current)
+      if (imgRef.current) window.clearInterval(imgRef.current)
     }
   }, [navigate])
 
@@ -46,11 +55,8 @@ const MainTimer: React.FC = () => {
 
     if (mode === 'continuous') {
       if (elapsed > 0 && elapsed % breakInterval === 0) {
-        // signal break with a bell then navigate
-        playBell()
         localStorage.setItem('lockedin:session', JSON.stringify({ ...session, elapsed }))
-        // small delay so bell can start before route change
-        setTimeout(() => navigate('/break'), 200)
+        navigate('/break')
       }
     } else {
       if (target !== null && elapsed >= target) {
@@ -58,9 +64,8 @@ const MainTimer: React.FC = () => {
         return
       }
       if (elapsed > 0 && elapsed % breakInterval === 0) {
-        playBell()
         localStorage.setItem('lockedin:session', JSON.stringify({ ...session, elapsed }))
-        setTimeout(() => navigate('/break'), 200)
+        navigate('/break')
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -88,14 +93,40 @@ const MainTimer: React.FC = () => {
 
   return (
     <div style={{ padding: 32, fontFamily: 'Inter, system-ui, sans-serif' }}>
-  <img src={logo} alt="LockedIn" style={{ width: 140, display: 'block', marginBottom: 12 }} />
-  <h2>{session.subject}</h2>
-  <div style={{ fontSize: 48, fontWeight: 700 }}>{isContinuous ? formatTime(elapsed) : formatTime(timeLeft ?? 0)}</div>
+      <img src={logo} alt="LockedIn" style={{ width: 140, display: 'block', marginBottom: 12 }} />
+      <h2>{session.subject}</h2>
+      <div style={{ fontSize: 48, fontWeight: 700 }}>{isContinuous ? formatTime(elapsed) : formatTime(timeLeft ?? 0)}</div>
 
-      <div style={{ marginTop: 12 }}>Time Until Next Break: {formatTime(untilNextBreak)}</div>
+      <div style={{ marginTop: 12, textAlign: 'center' }}>Time Until Next Break: {formatTime(untilNextBreak)}</div>
+
+      {/* Progress bar synced to time until next break */}
+      <div style={{ width: '100%', maxWidth: 560, margin: '12px auto 0', padding: '6px 8px' }}>
+        <div style={{ height: 12, background: '#e6e6e6', borderRadius: 8, overflow: 'hidden' }}>
+          {/** progress is fraction of breakInterval that has elapsed since last break */}
+          <div
+            style={{
+              height: '100%',
+              width: `${Math.min(100, Math.max(0, ((elapsed % breakInterval) / breakInterval) * 100))}%`,
+              background: '#C9A178',
+              transition: 'width 400ms linear',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Centered cycling image below the countdown (no visual effects) */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+        <img
+          src={showFirst ? christ1 : christ2}
+          alt="Christian"
+          style={{ width: 240, height: 240, objectFit: 'contain', backgroundColor: 'transparent', borderRadius: 0, boxShadow: 'none' }}
+        />
+      </div>
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={finishAndGoToEnd} style={{ padding: '10px 14px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: 8 }}>End Studying</button>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button onClick={finishAndGoToEnd} style={{ padding: '10px 14px', background: '#ef4444', color: '#fff', border: 'none', borderRadius: 8 }}>End Studying</button>
+        </div>
       </div>
     </div>
   )
