@@ -10,7 +10,8 @@ export default function NotesAIDisplay() {
     setResponse('');
 
     try {
-      const res = await fetch('/ask', {
+      // ✅ Use your Render-deployed API URL
+      const res = await fetch('https://lockedin-1m1h.onrender.com/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
