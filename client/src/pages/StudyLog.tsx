@@ -40,15 +40,12 @@ const StudyLog: React.FC = () => {
 
   function studyHistory(): void {
     //add DB info to array
-    let history: Object[] = [];
-
+    
+    
   }
   function newStudy(): void {
     navigate('/subjectSelection');
   }
-
-  
-
 
   return (
     <div style={styles.container}>
@@ -72,7 +69,6 @@ const StudyLog: React.FC = () => {
         <h1 style={styles.h1}>Study Log</h1>
         <img src={PadLock} alt="PadLock" style={{ width: "300px" }} />
         <div style={styles.btnPos}><button onClick={newStudy} style={styles.btn2}>New Study</button></div>
-         
          
       </div>
     </div>
