@@ -52,12 +52,12 @@ const BreakDisplay: React.FC = () => {
 
   const onContinue = () => {
     // return to main timer
-    navigate('/main')
+    navigate('/mainTimer')
   }
 
   const onEnd = async () => {
     const raw = localStorage.getItem('lockedin:session')
-    if (!raw) return navigate('/home')
+  if (!raw) return navigate('/home')
     const s = JSON.parse(raw)
     const finalMinutes = Math.ceil((s.elapsed || 0) / 60)
     try {
@@ -65,7 +65,7 @@ const BreakDisplay: React.FC = () => {
     } catch (err) {
       console.error(err)
     }
-    navigate('/end', { state: { subject: s.subject, durationMinutes: finalMinutes } })
+    navigate('/endScreen', { state: { subject: s.subject, durationMinutes: finalMinutes } })
   }
 
   const elapsed = Math.max(0, total - left)
@@ -93,7 +93,7 @@ const BreakDisplay: React.FC = () => {
             <div style={{ color: '#64748b', alignSelf: 'center', padding: '8px 12px' }}>Take a short break</div>
           )}
 
-          <button onClick={() => navigate('/notes')} style={styles.paleBtn}>Notes</button>
+          <button onClick={() => navigate('/notesAIDisplay')} style={styles.paleBtn}>Notes</button>
           <button onClick={() => alert('Try a quick stretch: reach for the sky and hold 20s')} style={styles.paleBtn}>Stretch</button>
           <button onClick={onEnd} style={styles.endBtn}>End</button>
         </div>

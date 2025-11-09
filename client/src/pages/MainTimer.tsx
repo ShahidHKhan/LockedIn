@@ -56,7 +56,7 @@ const MainTimer: React.FC = () => {
     if (mode === 'continuous') {
       if (elapsed > 0 && elapsed % breakInterval === 0) {
         localStorage.setItem('lockedin:session', JSON.stringify({ ...session, elapsed }))
-        navigate('/break')
+        navigate('/breakDisplay')
       }
     } else {
       if (target !== null && elapsed >= target) {
@@ -65,7 +65,7 @@ const MainTimer: React.FC = () => {
       }
       if (elapsed > 0 && elapsed % breakInterval === 0) {
         localStorage.setItem('lockedin:session', JSON.stringify({ ...session, elapsed }))
-        navigate('/break')
+        navigate('/breakDisplay')
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,7 +79,7 @@ const MainTimer: React.FC = () => {
     } catch (err) {
       console.error(err)
     }
-    navigate('/end', { state: { subject: session.subject, durationMinutes: Math.ceil(elapsed / 60) } })
+    navigate('/endScreen', { state: { subject: session.subject, durationMinutes: Math.ceil(elapsed / 60) } })
   }
 
   if (!session) return null

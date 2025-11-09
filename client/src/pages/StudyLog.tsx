@@ -35,7 +35,7 @@ const StudyLog: React.FC = () => {
 
   const handleSignOut = async () => {
     await signOut(auth)
-    navigate('/Login')
+    navigate('/login')
   }
 
   function studyHistory(): void {

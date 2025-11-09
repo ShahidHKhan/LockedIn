@@ -266,8 +266,9 @@ const SubjectSelection: React.FC = () => {
       categoryName: expandedCategory.name,
       subjectName: selectedSubject,
     }
-    localStorage.setItem('lockedin:subject', JSON.stringify(chosen))
-    navigate('/timer')
+  localStorage.setItem('lockedin:subject', JSON.stringify(chosen))
+  // route in App.tsx uses /timerSelection
+  navigate('/timerSelection')
   }
 
   // small style helpers

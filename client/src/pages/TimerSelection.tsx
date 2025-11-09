@@ -28,7 +28,7 @@ const TimerSelection: React.FC = () => {
   const handleSelect = async (opt: number) => {
     if (!subject) {
       alert('Please select a subject first')
-      navigate('/subject')
+      navigate('/subjectSelection')
       return
     }
 
@@ -56,8 +56,8 @@ const TimerSelection: React.FC = () => {
       })
       // store session info locally so MainTimer can read it
       const start = Date.now()
-      localStorage.setItem('lockedin:session', JSON.stringify({ sessionId, subject: subjectName, subjectId, mode, durationMinutes, breakIntervalSeconds, breakDurationSeconds, start }))
-      navigate('/main')
+  localStorage.setItem('lockedin:session', JSON.stringify({ sessionId, subject: subjectName, subjectId, mode, durationMinutes, breakIntervalSeconds, breakDurationSeconds, start }))
+  navigate('/mainTimer')
     } catch (err) {
       console.error(err)
       alert('Failed to create session')
@@ -66,7 +66,7 @@ const TimerSelection: React.FC = () => {
 
   return (
     <div style={{ padding: 28, fontFamily: 'Inter, system-ui, sans-serif' }}>
-      <button onClick={() => navigate('/subject')} style={{ padding: '8px 12px', background: '#F3E9DE', color: '#6b4b2a', border: '1px solid #e6d6c4', borderRadius: 8 }}>Back</button>
+  <button onClick={() => navigate('/subjectSelection')} style={{ padding: '8px 12px', background: '#F3E9DE', color: '#6b4b2a', border: '1px solid #e6d6c4', borderRadius: 8 }}>Back</button>
       <h2 style={{ marginTop: 12 }}>Choose a study duration</h2>
 
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, marginTop: 18 }}>
