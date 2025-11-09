@@ -6,6 +6,7 @@ import type { User } from 'firebase/auth'
 import { useNavigate, Link } from 'react-router-dom'
 import LockedInLogo from "../assets/LockedInLogo.png"
 import PadLock from "../assets/PadLock.png"
+import StudyLogIMG from "../assets/StudyLogLogo.png"
 
 const styles: Record<string, React.CSSProperties> = {
   h1: {paddingTop:'50px'},
@@ -98,7 +99,7 @@ const StudyLog: React.FC = () => {
   function back(): void {
     navigate('/home');
   }
-  
+
   function newStudy(): void {
     navigate('/subjectSelection');
   }
@@ -238,7 +239,7 @@ const StudyLog: React.FC = () => {
       </div>
 
       <div style={styles.card}>
-        <h1 style={styles.h1}>Study Log</h1>
+        <img src={StudyLogIMG} alt="StudyLogLogo" style={{ width: "200px" }} />  
         <img src={PadLock} alt="PadLock" style={{ width: "300px", borderRadius: '200px'}} />
         <div style={styles.btnPos}><button onClick={newStudy} style={styles.btn2}>New Study</button></div>
         
