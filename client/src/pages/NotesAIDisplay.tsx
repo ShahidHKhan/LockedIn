@@ -1,59 +1,64 @@
 import React, { useState } from 'react';
 
-const NotesAIDisplay: React.FC = () => {
+export default function NotesAIDisplay() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleAskAgent = async () => {
-    if (!input.trim()) return;
-
+  const handleAskAI = async () => {
     setLoading(true);
+    setResponse('');
+
     try {
-      const res = await fetch('http://localhost:5000/ask', {
+      const res = await fetch('/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: '123', // or dynamic ID if you want
+          userId: 'test',
           input: input,
         }),
       });
 
       const data = await res.json();
-      setResponse(data.response || 'No response received.');
+
+      if (res.ok) {
+        setResponse(data.response || 'No response received.');
+      } else {
+        setResponse('Error from assistant.');
+      }
     } catch (err) {
-      console.error('API error:', err);
-      setResponse('Error reaching the assistant.');
-    } finally {
-      setLoading(false);
+      setResponse('❌ Failed to reach server.');
+      console.error(err);
     }
+
+    setLoading(false);
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '600px', margin: '0 auto' }}>
-      <h2>🤖 AI Assistant</h2>
-      
+    <div style={{ padding: '2rem' }}>
+      <h1>🤖 AI Assistant</h1>
+
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Ask me anything..."
-        rows={4}
-        style={{ width: '100%', padding: '1rem', fontSize: '1rem' }}
+        rows={5}
+        cols={60}
+        placeholder="Ask something..."
       />
 
-      <button onClick={handleAskAgent} style={{ marginTop: '1rem' }}>
-        {loading ? 'Thinking...' : 'Ask AI'}
-      </button>
+      <div style={{ margin: '1rem 0' }}>
+        <button onClick={handleAskAI} disabled={loading}>
+          {loading ? 'Thinking...' : 'Ask AI'}
+        </button>
+      </div>
 
       {response && (
-        <div style={{ marginTop: '2rem', whiteSpace: 'pre-wrap' }}>
+        <div>
           <strong>AI:</strong> {response}
         </div>
       )}
     </div>
   );
-};
-
-export default NotesAIDisplay;
+}
