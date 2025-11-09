@@ -2,15 +2,20 @@ import * as z from "zod";
 import { tool } from "@langchain/core/tools";
 
 const summarizeSchema = z.object({
-  info: z.string().describe("The full information the user blurted out")
+  info: z.string().describe("The user's raw, possibly incorrect study notes.")
 });
 
-function summarizeFunc({ info }: { info: string }): string {
-  return `📝 Summary:\n- ${info.split('.').filter(Boolean).map(s => s.trim()).join('\n- ')}`;
+async function summarizeFunc({ info }: { info: string }): Promise<string> {
+  return `Please take the following study notes and:
+1. Correct any factual inaccuracies.
+2. Rewrite them clearly.
+3. Return them as clean bullet points.
+
+Notes: """${info}"""`;
 }
 
 export const summarizeTool = tool(summarizeFunc, {
   name: "summarize_notes",
-  description: "Summarize user's blurted study info into brief notes",
-  schema: summarizeSchema
+  description: "Fix incorrect study notes and rewrite them as clean bullet points.",
+  schema: summarizeSchema,
 });
