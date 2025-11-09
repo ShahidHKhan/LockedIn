@@ -94,7 +94,6 @@ const BreakDisplay: React.FC = () => {
           )}
 
           <button onClick={() => navigate('/notesAIDisplay')} style={styles.paleBtn}>Notes</button>
-          <button onClick={() => alert('Try a quick stretch: reach for the sky and hold 20s')} style={styles.paleBtn}>Stretch</button>
           <button onClick={onEnd} style={styles.endBtn}>End</button>
         </div>
       </div>
