@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCICh7rqp55u28E0vd2GTd0_FeLJPh2_rw",
-  authDomain: "lockedin-78279.firebaseapp.com",
-  projectId: "lockedin-78279",
+  apiKey: "clearunusedkey",
+  authDomain: "lockedin-clearunusedkey.firebaseapp.com",
+  projectId: "lockedin-clearunusedkey",
   storageBucket: "lockedin-78279.firebasestorage.app",
   messagingSenderId: "419795335179",
-  appId: "1:419795335179:web:58f9be1e97560792b32f0e",
-  measurementId: "G-GXY0CQWC0W"
+  appId: "1:clearunusedkey:web:clearunusedkey",
+  measurementId: "G-clearunusedkey"
 };
 
 // Initialize Firebase
